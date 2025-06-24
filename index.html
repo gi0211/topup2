@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Top Up Game - GiooXshop</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow-x: hidden;
+    }
+    .video-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      object-fit: cover;
+    }
+    .toggle-btn {
+      display: none;
+      font-size: 24px;
+      background: none;
+      border: none;
+      color: white;
+      margin-bottom: 10px;
+      cursor: pointer;
+    }
+    @media (max-width: 768px) {
+      .toggle-btn { display: block; }
+      .sidebar { transform: translateX(-100%); }
+      .sidebar.open { transform: translateX(0); }
+    }
+    .promo-banner {
+      position: relative;
+      width: 100%;
+      max-height: 220px;
+      overflow: hidden;
+      margin: 20px 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    .promo-banner img {
+      width: 95%;
+      max-height: 220px;
+      object-fit: cover;
+      border-radius: 16px;
+      opacity: 0.85;
+      animation: float 3s ease-in-out infinite;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Animasi ngambang */
+    @keyframes float {
+      0%   { transform: translateY(0px); }
+      50%  { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Background Video -->
+  <video autoplay muted loop class="video-bg">
+    <source src="https://cdn.pixabay.com/video/2021/08/26/86462-593059278_large.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <!-- Background Music -->
+  <audio autoplay loop>
+    <source src="https://soundcloud.com/olly_alexander/breathe?si=661877c232f0454295afeb94cb1fce0e&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing" type="audio/mpeg">
+    Browser kamu tidak mendukung audio.
+  </audio>
+
+  <!-- Sidebar -->
+  <div class="sidebar" id="sidebar">
+    <div class="profile">
+      <img src="https://i.pinimg.com/736x/ae/15/37/ae153752c6f9ae72dbe6196dd55ac31e.jpg" alt="Profile">
+      <h2>GiooXshop</h2>
+    </div>
+    <ul class="menu">
+      <li>Menu Utama</li>
+      <li>Voucher / Kode Promo</li>
+      <li>Riwayat Transaksi</li>
+      <li>Notifikasi</li>
+      <li>Pengaturan</li>
+      <li>Pusat Bantuan</li>
+      <li>Keluar</li>
+    </ul>
+  </div>
+
+  <div class="main">
+    <header>
+      <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
+      <h1>Gioo STORE</h1>
+      <p>Tempat topup kebutuhan item game termurah dan tercepat se-Indonesia.</p>
+    </header>
+
+    <section class="promo-banner">
+     <img src="c:\Users\ACER\AppData\Local\Packages\5319275A.WhatsAppDesktop_cv1g1gvanyjgm\TempState\18903E4430783A191B0CFAB439DAAEF8\WhatsApp Image 2025-06-24 at 17.35.25_1ac3c0ae.jpg" alt="Promo Banner" style="width: 100%; max-height: 200px; object-fit: cover; border-radius: 12px;">
+    </section>
+
+
+    <h3>Paling Populer</h3>
+    <div class="game-grid">
+      <div class="game-card" onclick="location.href='topup/mlbb.html'">
+        <img src="https://i.pinimg.com/736x/4a/33/38/4a3338cdb512aea0aca009e2279bb938.jpg" alt="MLBB">
+        <div class="overlay">Mobile Legends</div>
+      </div>
+      <div class="game-card" onclick="location.href='topup/freefire.html'">
+        <img src="https://i.pinimg.com/736x/9b/aa/66/9baa66a3fb33bfcea3e8b791dee5d1c7.jpg" alt="Free Fire">
+        <div class="overlay">Free Fire</div>
+      </div>
+    </div>
+
+    <h3>Game</h3>
+    <div class="game-grid">
+      <div class="game-card" onclick="location.href='topup/pubg.html'">
+        <img src="https://i.pinimg.com/736x/3d/6e/97/3d6e973dbc5062b97facc26016f1b5ba.jpg" alt="PUBG">
+        <div class="overlay">PUBG</div>
+      </div>
+      <div class="game-card" onclick="location.href='topup/genshin.html'">
+        <img src="https://i.pinimg.com/736x/1f/02/1a/1f021a2d337c5b2a9195a023741cee3a.jpg" alt="Genshin">
+        <div class="overlay">Genshin Impact</div>
+      </div>
+      <div class="game-card" onclick="location.href='topup/codm.html'">
+        <img src="https://i.pinimg.com/736x/51/b1/32/51b132afab3cc6a4bcc2caee3e8ac027.jpg" alt="CODM">
+        <div class="overlay">CODM</div>
+      </div>
+      <div class="game-card" onclick="location.href='topup/coc.html'">
+        <img src="https://i.pinimg.com/736x/5d/ee/fb/5deefbb3fb0a8cf7f7e469ae92143657.jpg" alt="Clash of Clans">
+        <div class="overlay">Clash of Clans</div>
+      </div>
+      <div class="game-card" onclick="location.href='topup/hsr.html'">
+        <img src="https://i.pinimg.com/736x/91/00/49/910049f3b026069751c3088c67a90393.jpg" alt="HSR">
+        <div class="overlay">Honkai Star Rail</div>
+      </div>
+      <div class="game-card" onclick="location.href='topup/roblox.html'">
+        <img src="https://i.pinimg.com/736x/eb/20/30/eb203036af2bf931259d9c2ae254b2cd.jpg" alt="Roblox">
+        <div class="overlay">Roblox</div>
+      </div>
+      <div class="game-card" onclick="location.href='topup/bloodstrike.html'">
+        <img src="https://i.pinimg.com/736x/f0/0c/bd/f00cbdcb4ce907a9e1b4e78aa7edfbb4.jpg" alt="Blood Strike">
+        <div class="overlay">Blood Strike</div>
+      </div>
+      <div class="game-card" onclick="location.href='topup/aov.html'">
+        <img src="https://i.pinimg.com/736x/ac/08/e4/ac08e4e22eeb7872543704b289ea3d14.jpg" alt="AOV">
+        <div class="overlay">Arena of Valor</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function toggleSidebar() {
+      document.getElementById('sidebar').classList.toggle('open');
+    }
+    document.addEventListener("click", function(e) {
+      const sidebar = document.getElementById('sidebar');
+      const toggleBtn = document.querySelector('.toggle-btn');
+      if (!sidebar.contains(e.target) && !toggleBtn.contains(e.target)) {
+        sidebar.classList.remove('open');
+      }
+    });
+  </script>
+</body>
+</html>
