@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Top Up MLBB - Gio Store</title>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body style="background: #6a1b9a; color: white; padding: 20px;">
+  <h1>Top Up Mobile Legends (MLBB)</h1>
+  <p>Masukkan data kamu untuk top up MLBB.</p>
+
+  <form id="topupForm">
+    <label for="uid">UID + Zone ID:</label><br/>
+    <input type="text" id="uid" required><br/><br/>
+
+    <label for="nominal">Nominal:</label><br/>
+    <select id="nominal" required>
+      <option>5 Diamonds - Rp 1.500</option>
+      <option>12 Diamonds - Rp 3.000</option>
+      <option>70 Diamonds - Rp 10.000</option>
+    </select><br/><br/>
+
+    <label for="metode">Metode Pembayaran:</label><br/>
+    <select id="metode" required>
+      <option>Dana</option>
+      <option>OVO</option>
+      <option>Gopay</option>
+      <option>ShopeePay</option>
+    </select><br/><br/>
+
+    <label for="whatsapp">Nomor WhatsApp:</label><br/>
+    <input type="text" id="whatsapp" placeholder="08xxxxxxxxxx" required><br/><br/>
+
+    <button type="submit">Beli Sekarang</button>
+  </form>
+
+  <script>
+    document.getElementById("topupForm").addEventListener("submit", function(e){
+      e.preventDefault();
+      const uid = document.getElementById("uid").value;
+      const nominal = document.getElementById("nominal").value;
+      const metode = document.getElementById("metode").value;
+      const wa = document.getElementById("whatsapp").value;
+      const pesan = `Halo Admin, saya ingin top up Mobile Legends:%0AUID: ${uid}%0ANominal: ${nominal}%0AMetode: ${metode}%0AWhatsApp: ${wa}`;
+      window.open(`https://wa.me/6282269165383?text=${pesan}`, '_blank'); // ganti nomor WA
+    });
+  </script>
+</body>
+</html>

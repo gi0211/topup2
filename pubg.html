@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Top Up PUBG Mobile - Gio Store</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: url('../images/bg-pubg.jpg') no-repeat center center / cover;
+      min-height: 100vh;
+      color: white;
+      padding-top: 60px;
+    }
+    nav {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      padding: 15px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 1000;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 18px;
+    }
+    nav a:hover { text-decoration: underline; }
+    .container {
+      max-width: 700px;
+      margin: auto;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 15px;
+      backdrop-filter: blur(6px);
+    }
+    h1 {
+      font-size: 24px;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+    p {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 14px;
+    }
+    form label {
+      display: block;
+      margin-top: 15px;
+      margin-bottom: 5px;
+      font-size: 14px;
+    }
+    input, select {
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+      border: none;
+      font-size: 15px;
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+    }
+    input::placeholder { color: #ddd; }
+    .nominal-section h3 {
+      margin-top: 20px;
+      margin-bottom: 10px;
+      font-size: 16px;
+    }
+    .nominal-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .nominal-card {
+      background: rgba(255, 255, 255, 0.15);
+      padding: 10px;
+      border-radius: 10px;
+      text-align: center;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: 0.2s;
+      height: 100px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .nominal-card:hover {
+      background: rgba(255, 255, 255, 0.25);
+    }
+    .nominal-card.selected {
+      border-color: #ffc107;
+      background: rgba(255, 255, 255, 0.3);
+    }
+    .nominal-title {
+      font-weight: bold;
+      font-size: 14px;
+    }
+    .nominal-price {
+      font-size: 13px;
+      color: #00e676;
+    }
+    button {
+      margin-top: 20px;
+      width: 100%;
+      padding: 12px;
+      background-color: #ff4081;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-weight: bold;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    button:hover {
+      background-color: #e91e63;
+    }
+    @media (max-width: 992px) {
+      .nominal-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+    @media (max-width: 768px) {
+      .nominal-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    @media (max-width: 480px) {
+      .nominal-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="../index.html">← Kembali ke Beranda</a>
+    <span>PUBG Mobile</span>
+  </nav>
+
+  <div class="container">
+    <h1>Top Up PUBG Mobile</h1>
+    <p>Masukkan data kamu untuk top up PUBG Mobile</p>
+
+    <form id="topupForm">
+      <label for="uid">Character ID:</label>
+      <input type="text" id="uid" placeholder="Contoh: 123456789" required>
+
+      <div class="nominal-section">
+        <h3>Pilih UC:</h3>
+        <div class="nominal-grid" id="nominalList">
+          <div class="nominal-card" data-value="60 UC - Rp 10.000">
+            <div class="nominal-title">60 UC</div>
+            <div class="nominal-price">Rp 10.000</div>
+          </div>
+          <div class="nominal-card" data-value="325 UC - Rp 50.000">
+            <div class="nominal-title">325 UC</div>
+            <div class="nominal-price">Rp 50.000</div>
+          </div>
+          <div class="nominal-card" data-value="660 UC - Rp 95.000">
+            <div class="nominal-title">660 UC</div>
+            <div class="nominal-price">Rp 95.000</div>
+          </div>
+          <div class="nominal-card" data-value="1800 UC - Rp 250.000">
+            <div class="nominal-title">1800 UC</div>
+            <div class="nominal-price">Rp 250.000</div>
+          </div>
+          <div class="nominal-card" data-value="3850 UC - Rp 500.000">
+            <div class="nominal-title">3850 UC</div>
+            <div class="nominal-price">Rp 500.000</div>
+          </div>
+          <div class="nominal-card" data-value="8100 UC - Rp 1.000.000">
+            <div class="nominal-title">8100 UC</div>
+            <div class="nominal-price">Rp 1.000.000</div>
+          </div>
+        </div>
+        <input type="hidden" id="nominal" required />
+      </div>
+
+      <label for="metode">Metode Pembayaran:</label>
+      <select id="metode" required>
+        <option value="">-- Pilih Metode --</option>
+        <option>Dana</option>
+        <option>OVO</option>
+        <option>Gopay</option>
+        <option>ShopeePay</option>
+      </select>
+
+      <label for="whatsapp">Nomor WhatsApp:</label>
+      <input type="text" id="whatsapp" placeholder="08xxxxxxxxxx" required>
+
+      <button type="submit">Pesan Sekarang!</button>
+    </form>
+  </div>
+
+  <script>
+    const nominalCards = document.querySelectorAll('.nominal-card');
+    const nominalInput = document.getElementById('nominal');
+
+    nominalCards.forEach(card => {
+      card.addEventListener('click', () => {
+        nominalCards.forEach(c => c.classList.remove('selected'));
+        card.classList.add('selected');
+        nominalInput.value = card.getAttribute('data-value');
+      });
+    });
+
+    document.getElementById("topupForm").addEventListener("submit", function(e){
+      e.preventDefault();
+      const uid = document.getElementById("uid").value;
+      const nominal = nominalInput.value;
+      const metode = document.getElementById("metode").value;
+      const wa = document.getElementById("whatsapp").value;
+      const pesan = `Halo Admin, saya ingin top up PUBG:%0AID: ${uid}%0ANominal: ${nominal}%0AMetode: ${metode}%0AWhatsApp: ${wa}`;
+      window.open(`https://wa.me/62XXXXXXXXXXX?text=${pesan}`, '_blank'); // Ganti nomor admin
+    });
+  </script>
+</body>
+</html>
